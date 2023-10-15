@@ -40,14 +40,18 @@ public class Tarea121023Sistema {
 
             if (opt == 1) {
 
-                String codi = JOptionPane.showInputDialog("Ingrese el codigo del producto: ");
+                if (produ.size() <= 500) {
 
-                String descri = JOptionPane.showInputDialog("Escriba la descripcion: ");
-                Color color = JColorChooser.showDialog(null, "Seleccione el color: ", Color.yellow);
-                long precio = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el precio: "));
-                Date fecha = df.parse(JOptionPane.showInputDialog("Ingrese la Fecha de expiracion de la forma (DD/MM/YYYY): "));
-                JOptionPane.showMessageDialog(null, "Producto agregado con exito");
-                produ.add(new Producto(codi, descri, color, precio, fecha));
+                    String codi = JOptionPane.showInputDialog("Ingrese el codigo del producto: ");
+                    String descri = JOptionPane.showInputDialog("Escriba la descripcion: ");
+                    Color color = JColorChooser.showDialog(null, "Seleccione el color: ", Color.yellow);
+                    long precio = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el precio: "));
+                    Date fecha = df.parse(JOptionPane.showInputDialog("Ingrese la Fecha de expiracion de la forma (DD/MM/YYYY): "));
+                    JOptionPane.showMessageDialog(null, "Producto agregado con exito");
+                    produ.add(new Producto(codi, descri, color, precio, fecha));
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se pueden agregar mas producto");
+                }
 
             } else if (opt == 2) {
                 JOptionPane.showMessageDialog(null, "Lista de productos");
